@@ -48,16 +48,16 @@ export default function AllNotes({ notes, setNotes }) {
   };
 
   return (
-    <div>
+    <div className="allnotesparent">
       <h2>All Notes</h2>
 
       {notes.length > 0 ? (
         notes.map((note) => (
             note && (
-                 <div key={note._id}>
+                 <div key={note._id} className="allNotes">
             <h3>{note.title}</h3>
             <p>{note.content}</p>
-            <div>
+            <div className="ndbtn">
               <button onClick={() => editNote(note._id)}>Edit</button>
               <button onClick={() => deleteNote(note._id)}>Delete</button>
             </div>

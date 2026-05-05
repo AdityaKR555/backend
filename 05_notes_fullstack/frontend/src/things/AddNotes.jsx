@@ -20,9 +20,9 @@ export default function AddNotes({ setNotes }) {
     }
 
     return (
-    <div>
+    <div className="addnoteparent">
         <h2>Add Note</h2>
-        <form onSubmit={addNote}>
+        <form onSubmit={addNote} className="formnote">
             <input type="text" name="title" placeholder="Note Title" />
             <textarea name="content" placeholder="Note Content"></textarea>
             <button type="submit">Add Note</button>
