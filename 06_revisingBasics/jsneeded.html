@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // alert("Hello World");
+
+        let arr = [1,2,3,4];
+
+        // forEach
+        arr.forEach((val) => {
+            val = val + 3;      //can't change value this way, only changes the local variable val, not the array itself, used for performing side effects
+            console.log(val)  // 4, 5, 6, 7
+        });
+        console.log(arr)  // [1, 2, 3, 4]
+
+        arr.forEach((val, index) => {
+            arr[index] = val + 3;      //can change value this way, changes the array itself
+            console.log(val)
+        })
+
+        // map
+        let newArr = arr.map((val) => {
+            return val + 3;      //creates a new array with the modified values, doesn't change the original array
+        })
+
+        console.log(newArr)  // [4, 5, 6, 7]
+
+        // filter
+        let filteredArr = arr.filter((val) => {
+            return val > 2;      //creates a new array with the values that pass the test, doesn't change the original array, work on true or false values
+        })
+        console.log(filteredArr)  // [3, 4]
+
+        // reduce
+        let sum = arr.reduce((acc, val) => {
+            return acc + val;      //reduces the array to a single value, doesn't change the original array
+        }, 0)      //initial value of acc is 0
+        console.log(sum)  // 22
+
+        let max = arr.reduce((acc, val) => {
+            return val > acc ? val : acc;     
+        }, arr[0])      
+        console.log(max)  // 7
+
+
+        // ---------------------------------------------------------
+
+        // Length of function = No. of parameters in the function
+
+        function abcd() {
+            console.log("abcd");
+        }
+
+        console.log(abcd.length)  // 0
+
+        function sum(a, b) {
+            return a + b;
+        }
+
+        console.log(sum.length)  // 2
+
+    </script>
+</body>
+</html>
