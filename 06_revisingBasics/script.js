@@ -27,7 +27,7 @@ app.get("/profile", function(req, res){
     res.send("This is the profile page");
 })
 
-app.use((err, req, res, next) => {
+app.use((err, req, res, next) => {              //speacial route made for error handling by express, it will be called when an error is thrown in the app
     console.error(err.stack);
     res.status(500).send("Something broke!");
 });
