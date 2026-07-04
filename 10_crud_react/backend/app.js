@@ -1,8 +1,10 @@
 const express = require('express');
 const userModel = require('./model/user');
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -34,12 +36,12 @@ app.delete("/delete/:id", async (req, res) => {
 app.patch("/update/:id", async (req, res) => {
     const id = req.params.id;
     const { name, email, image } = req.body;
-    await userModel.findByIdAndUpdate(id, {
+    const updatedUser = await userModel.findByIdAndUpdate(id, {
         name,
         email,
         image
     }, { new: true });
-    res.send("User updated successfully");
+    res.send(updatedUser);
 });
 
 app.listen(3000, () => {
